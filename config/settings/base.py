@@ -48,6 +48,17 @@ THIRD_PARTY_APPS = [
 
 INSTALLED_APPS = DJANGO_APPS + own_apps + THIRD_PARTY_APPS
 
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+# SPECTACULAR_SETTINGS (문서화 세부 설정)
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Django Mini Project API',
+    'DESCRIPTION': '프로젝트 API 문서입니다.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False, # 스키마 파일을 따로 서빙할지 여부
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
