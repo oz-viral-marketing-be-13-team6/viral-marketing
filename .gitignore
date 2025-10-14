@@ -132,7 +132,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+envs/.env
 .env.*
 .venv
 env/
@@ -432,3 +432,9 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows
+
+#도커 일단은 안 씀
+# ---- Docker ----
+Dockerfile
+docker-compose.yml
+docker-compose.dev.yml

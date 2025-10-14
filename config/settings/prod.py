@@ -1,6 +1,5 @@
 # config/settings/prod.py
 from .base import *
-import os
 import environ
 
 # 1. 환경 변수 로드
