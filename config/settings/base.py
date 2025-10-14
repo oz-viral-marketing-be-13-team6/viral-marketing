@@ -44,12 +44,16 @@ own_apps = []
 THIRD_PARTY_APPS = [
     'rest_framework',
     'drf_spectacular',
+    'djangorestframework-simplejwt'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + own_apps + THIRD_PARTY_APPS
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ]
 }
 
 # SPECTACULAR_SETTINGS (문서화 세부 설정)
