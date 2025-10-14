@@ -9,7 +9,7 @@ env = environ.Env()
 # 2. 디버그 및 보안 (필수)
 DEBUG = False
 # 배포 환경에서는 반드시 ALLOWED_HOSTS를 실제 도메인으로 설정해야 합니다.
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['yourdomain.com'])
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['your domain.com'])
 
 # 3. 데이터베이스 (PostgreSQL 연결)
 # .env 파일에서 DB 연결 정보를 가져옵니다.
