@@ -31,9 +31,8 @@
   "nickname": "가나다",
   "role": "user"
 }
-Response
-json
-코드 복사
+
+
 {
   "id": 1,
   "email": "test@example.com",
@@ -46,16 +45,14 @@ Status: 201 Created
 2️⃣ 로그인 (Login)
 POST /api/users/login/
 
-Request
-json
-코드 복사
+
+
 {
   "email": "test@example.com",
   "password": "test1234!"
 }
-Response
-json
-코드 복사
+
+
 {
   "access": "<JWT Access Token>",
   "refresh": "<JWT Refresh Token>"
@@ -65,15 +62,14 @@ Status: 200 OK
 3️⃣ 로그아웃 (Logout)
 POST /api/users/logout/
 
-Request
-json
-코드 복사
+
+
 {
   "refresh": "<JWT Refresh Token>"
 }
 Response
 json
-코드 복사
+
 {
   "message": "Successfully logged out"
 }
@@ -82,9 +78,8 @@ Status: 200 OK
 4️⃣ 프로필 조회 (Get Profile)
 GET /api/users/me/
 
-Response
-json
-코드 복사
+
+
 {
   "id": 1,
   "name": "가나다",
@@ -100,18 +95,16 @@ Status: 200 OK
 1️⃣ 계좌 생성 (Create Account)
 POST /api/accounts/
 
-Request
-json
-코드 복사
+
+
 {
   "bank_code": "004",
   "account_number": "123-456-7890",
   "account_type": "saving",
   "balance": 1000000
 }
-Response
-json
-코드 복사
+
+
 {
   "account_id": 1,
   "bank_code": "004",
@@ -125,9 +118,8 @@ Status: 201 Created
 2️⃣ 계좌 목록 조회 (List Accounts)
 GET /api/accounts/
 
-Response
-json
-코드 복사
+
+
 [
   {
     "account_id": 1,
@@ -147,9 +139,7 @@ Status: 200 OK
 3️⃣ 계좌 삭제 (Delete Account)
 DELETE /api/accounts/{account_id}/
 
-Response
-json
-코드 복사
+
 {
   "message": "Account deleted successfully"
 }
@@ -159,9 +149,7 @@ Status: 204 No Content
 1️⃣ 거래 내역 생성 (Create Transaction)
 POST /api/transactions/
 
-Request
-json
-코드 복사
+
 {
   "account_id": 1,
   "payment_method": "card",
@@ -169,9 +157,7 @@ json
   "category": "식비",
   "date": "2025-10-14T09:30:00Z"
 }
-Response
-json
-코드 복사
+
 {
   "transaction_id": 10,
   "account_id": 1,
@@ -185,9 +171,7 @@ Status: 201 Created
 2️⃣ 거래 내역 조회 (List Transactions)
 GET /api/transactions/?account_id=1
 
-Response
-json
-코드 복사
+
 [
   {
     "transaction_id": 10,
@@ -202,16 +186,12 @@ Status: 200 OK
 3️⃣ 거래 내역 수정 (Update Transaction)
 PUT /api/transactions/{transaction_id}/
 
-Request
-json
-코드 복사
+
 {
   "category": "교통비",
   "payment_method": "cash"
 }
-Response
-json
-코드 복사
+
 {
   "transaction_id": 10,
   "category": "교통비",
@@ -222,9 +202,7 @@ Status: 200 OK
 4️⃣ 거래 내역 삭제 (Delete Transaction)
 DELETE /api/transactions/{transaction_id}/
 
-Response
-json
-코드 복사
+
 {
   "message": "Transaction deleted successfully"
 }
@@ -234,9 +212,7 @@ Status: 204 No Content
 1️⃣ 알림 목록 조회 (List Notifications)
 GET /api/notifications/
 
-Response
-json
-코드 복사
+
 [
   {
     "id": 1,
@@ -252,9 +228,7 @@ Status: 200 OK
 2️⃣ 알림 읽음 처리 (Mark as Read)
 PATCH /api/notifications/{id}/read/
 
-Response
-json
-코드 복사
+
 {
   "message": "Notification marked as read"
 }
@@ -286,8 +260,3 @@ Auth: JWT (djangorestframework-simplejwt)
 Schema: drf-spectacular (Swagger UI 지원)
 
 DB: PostgreSQL
-
-작성자:
-Team6 — Viral Marketing Backend
-📧 team6@example.com
-🗓️ Updated: 2025-10-14
