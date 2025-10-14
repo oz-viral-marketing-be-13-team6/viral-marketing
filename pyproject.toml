@@ -36,6 +36,14 @@ psycopg2-binary = "^2.9.11"
 line-length = 120
 target-version = "py312"
 
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503"]
+
 # 린팅 규칙 설정
 [tool.ruff.lint]
 # 활성화할 규칙 세트 선택
@@ -59,3 +67,4 @@ ignore = [
 # 임포트 그룹을 구분하는 기준
 known-first-party = ["config", "apps"]
 # apps와 config는 우리의 프로젝트 코드(first-party)이므로, 외부 라이브러리보다 뒤에 오도록 정렬됩니다.
+
