@@ -44,7 +44,7 @@ own_apps = []
 THIRD_PARTY_APPS = [
     'rest_framework',
     'drf_spectacular',
-    'djangorestframework-simplejwt'
+    'rest_framework_simplejwt'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + own_apps + THIRD_PARTY_APPS
@@ -146,3 +146,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #웹훅 테스트
+
+
+SIMPLE_JWT = {
+  "TOKEN_OBTAIN_SERIALIZER": "utils.jwt_serializers.MyTokenObtainPairSerializer",
+}
