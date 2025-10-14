@@ -3,7 +3,7 @@ services:
     image: postgres:15-alpine
     restart: always
     env_file:
-      - enves/.env
+      - envs/.env
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
@@ -17,7 +17,7 @@ services:
     build: .
     command: /scripts/run.sh
     env_file:
-      - enves/.env
+      - envs/.env
     ports:
       - "8000:8000"
     depends_on:
