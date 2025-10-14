@@ -9,9 +9,8 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
 from pathlib import Path
-
+import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,7 +19,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0#)u0k)faywluws=l2s*n#chspi97acwlzy9xx)!)6&3sqx5tz'
+
+SECRET_KEY =env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -43,7 +43,6 @@ own_apps = []
 THIRD_PARTY_APPS = [
     'rest_framework',
     'drf_spectacular',
-    'SPECTACULAR_SETTINGS',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + own_apps + THIRD_PARTY_APPS
