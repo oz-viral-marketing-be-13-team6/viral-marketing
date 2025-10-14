@@ -50,7 +50,17 @@ THIRD_PARTY_APPS = [
     'rest_framework_simplejwt'
 ]
 
-INSTALLED_APPS = DJANGO_APPS + own_apps + THIRD_PARTY_APPS
+INSTALLED_APPS = [
+		'django.contrib.admin',
+		'django.contrib.auth',
+		'django.contrib.contenttypes',
+		'django.contrib.sessions',
+		'django.contrib.messages',
+		'django.contrib.staticfiles',
+
+		'rest_framework',
+		'drf_spectacular',
+		]
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
