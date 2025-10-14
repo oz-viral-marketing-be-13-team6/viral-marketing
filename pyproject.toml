@@ -3,7 +3,7 @@ name = "viral-maketing"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "han-son-03",email = "rkdgksths11@naver.com"}
+    {name = "UNGBI78",email = "mybluewings78@gmail.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.12,<4.0"
