@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 load_dotenv(os.path.join(BASE_DIR, "envs", ".env"))
-SECRET_KEY =os.getenv("DJANGO_SECRET_KEY")
+SECRET_KEY =os.getenv("DJANGO_SECRET_KEY", "temporary-secret-key-for-dev")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -60,7 +60,10 @@ INSTALLED_APPS = [
 
 		'rest_framework',
 		'drf_spectacular',
-		]
+
+		'apps.accounts',
+		'apps.notifications',
+]
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
@@ -169,3 +172,4 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "TOKEN_OBTAIN_SERIALIZER": "utils.jwt_serializers.MyTokenObtainPairSerializer",
 }
+
