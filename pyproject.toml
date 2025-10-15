@@ -1,61 +1,28 @@
-[project]
-name = "viral-maketing"
+[tool.poetry]
+name = "viral-marketing"
 version = "0.1.0"
-description = ""
-authors = [
-    {name = "UNGBI78",email = "mybluewings78@gmail.com"}
-]
+description = "Viral marketing Django project for Team6"
+authors = ["Team6 <team6@example.com>"]
 readme = "README.md"
-requires-python = ">=3.12,<4.0"
-dependencies = [
-    "django (>=5.2.7,<6.0.0)",
-    "djangorestframework",
-    "django-environ (>=0.12.0,<0.13.0)",
-    "drf-spectacular (>=0.28.0,<0.29.0)",
-    "dotenv (>=0.9.9,<0.10.0)",
-    "python-dotenv (>=1.1.1,<2.0.0)",
-    "djangorestframework-simplejwt (>=5.5.1,<6.0.0)"
-]
 
-
-[build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.2.7"
+djangorestframework = "^3.16.1"
+djangorestframework-simplejwt = "^5.5.1"
+django-environ = "^0.12.0"
+drf-spectacular = "^0.28.0"
+python-dotenv = "^1.1.1"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.14.0"
 pytest = "^8.4.2"
 factory-boy = "^3.3.3"
 
-
 [tool.poetry.group.prod.dependencies]
 gunicorn = "^23.0.0"
 psycopg2-binary = "^2.9.11"
 
-[tool.ruff]
-line-length = 120
-target-version = "py312"
-
-# 린팅 규칙 설정
-[tool.ruff.lint]
-# 활성화할 규칙 세트 선택
-# F: Pyflakes (잠재적 버그)
-# E: pycodestyle (스타일 가이드)
-# W: pycodestyle (경고)
-# I: isort (임포트 정렬)
-# D: pydocstyle (Docstring 스타일, 선택적)
-# UP: pyupgrade (최신 Python 문법으로 업그레이드)
-select = ["F", "E", "W", "I", "UP"]
-
-# 무시할 규칙 목록 (Docstring 규칙이나 Django 환경에서 불필요한 경고를 무시)
-ignore = [
-    "D",     # Docstring 규칙 전체 무시 (프로젝트 초기 단계에서는 유연성을 위해 무시하는 경우가 많음)
-    "ANN",   # Type Annotation 규칙 전체 무시 (점진적으로 타입 힌트를 도입할 경우)
-    "E501",  # line-length 설정으로 이미 처리되므로 명시적으로 제외할 필요는 없지만, 참고용.
-]
-
-# isort (임포트 정렬) 설정
-[tool.ruff.lint.isort]
-# 임포트 그룹을 구분하는 기준
-known-first-party = ["config", "apps"]
-# apps와 config는 우리의 프로젝트 코드(first-party)이므로, 외부 라이브러리보다 뒤에 오도록 정렬됩니다.
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
