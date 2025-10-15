@@ -1,0 +1,100 @@
+from django.db import models
+
+
+class BankCode(models.TextChoices):
+    # 은행 (001~099)
+    UNKNOWN = '000', '알수없음'
+    BOK = '001', '한국은행'  # The Bank of Korea
+    KDB = '002', '산업은행'  # Korea Development Bank
+    IBK = '003', '기업은행'  # Industrial Bank of Korea
+    KB = '004', '국민은행'  # Kookmin Bank
+    KEB = '005', '외환은행'  # Korea Exchange Bank (현재 KEB하나은행으로 통합)
+    SUHYUP = '007', '수협중앙회'  # Suhyup
+    EXIM = '008', '수출입은행'  # Export-Import Bank of Korea
+    NH = '011', '농협은행'  # NongHyup Bank
+    REGION_NH = '012', '지역농.축협'  # Regional Agricultural/Livestock Cooperative
+    WOORI = '020', '우리은행'  # Woori Bank
+    SC = '023', 'SC은행'  # Standard Chartered Bank Korea
+    CITI = '027', '한국씨티은행'  # Citibank Korea
+    DAEGU = '031', '대구은행'  # Daegu Bank
+    BUSAN = '032', '부산은행'  # Busan Bank
+    GWANGJU = '034', '광주은행'  # Gwangju Bank
+    JEJU = '035', '제주은행'  # Jeju Bank
+    JEONBUK = '037', '전북은행'  # Jeonbuk Bank
+    GYEONGNAM = '039', '경남은행'  # Gyeongnam Bank
+    SAEMAUL = '045', '새마을금고중앙회'  # Saemaul Geumgo Federation
+    SHINHYUP = '048', '신협중앙회'  # Credit Union
+    SAVING_BANK = '050', '상호저축은행'  # Mutual Savings Bank
+    BOC = '051', '중국은행'  # Bank of China
+    MSB = '052', '모건스탠리은행'  # Morgan Stanley Bank
+    HSBC = '054', 'HSBC은행'
+    DEUTSCHE = '055', '도이치은행'  # Deutsche Bank
+    RBS = '056', '알비에스피엘씨은행'  # The Royal Bank of Scotland
+    JPM = '057', '제이피모간체이스은행'  # JP Morgan Chase Bank
+    MIZUHO = '058', '미즈호은행'  # Mizuho Bank
+    MTUFG = '059', '미쓰비시도쿄UFJ은행'  # MUFG Bank
+    BOA = '060', 'BOA은행'  # Bank of America
+    BNPP = '061', '비엔피파리바은행'  # BNP Paribas
+    ICBC = '062', '중국공상은행'  # Industrial and Commercial Bank of China
+    CCB = '063', '중국은행'  # China Construction Bank (051과 063 중복으로 보이나, 목록 기준 063도 사용)
+    FORESTRY = '064', '산림조합중앙회'  # Korea Federation of Savings Banks
+    DAE_WHA = '065', '대화은행'  # The Bank of Taiwan (대화은행)
+    COMM_BANK = '066', '교통은행'  # Bank of Communications
+    POST = '071', '우체국'  # Post Office
+    SHINBO = '076', '신용보증기금'  # Korea Credit Guarantee Fund
+    KI_BO = '077', '기술보증기금'  # Korea Technology Finance Corporation
+    HANA = '081', 'KEB하나은행'  # KEB Hana Bank
+    SHINHAN = '088', '신한은행'  # Shinhan Bank
+    KBANK = '089', '케이뱅크'  # K bank
+    KAKAOBANK = '090', '카카오뱅크'  # KakaoBank
+    TOSS = '092', '토스뱅크'  # Toss Bank
+    HF = '093', '한국주택금융공사'  # Korea Housing Finance Corporation
+    SGI = '094', '서울보증보험'  # Seoul Guarantee Insurance
+    POLICE = '095', '경찰청'  # Korean National Police Agency
+    KFTC = '096', '한국전자금융(주)'  # Korea Financial Telecommunications & Clearings
+    FINET = '099', '금융결제원'  # Korea Financial Telecommunications & Clearings Institute
+
+    # 저축은행 (100번대)
+    DAESHIN_SB = '102', '대신저축은행'
+    SBI_SB = '103', '에스비아이저축은행'
+    HK_SB = '104', '에이치케이저축은행'
+    WELCOME_SB = '105', '웰컴저축은행'
+    SHINHAN_SB = '106', '신한저축은행'
+
+    # 증권/금융투자 (200번대)
+    YUANTA = '209', '유안타증권'
+    HYUNDAI_SEC = '218', '현대증권'
+    GOLDENBRIDGE = '221', '골든브릿지투자증권'
+    HANYANG = '222', '한양증권'
+    LEADING = '223', '리딩투자증권'
+    BNK_INV = '224', 'BNK투자증권'
+    IBK_INV = '225', 'IBK투자증권'
+    KB_INV = '226', 'KB투자증권'
+    KTB_INV = '227', 'KTB투자증권'
+    MIRAESSET = '230', '미래에셋증권'
+    DAEWOO_SEC = '238', '대우증권'
+    SAMSUNG_SEC = '240', '삼성증권'
+    KOREA_INV = '243', '한국투자증권'
+    KYOBO = '261', '교보증권'
+    HI_INV = '262', '하이투자증권'
+    HMC = '263', 'HMC투자증권'
+    KIWOOM = '264', '키움증권'
+    EBEST = '265', '이베스트투자증권'
+    SK = '266', 'SK증권'
+    DAESHIN_SEC = '267', '대신증권'
+    HANWHA_INV = '269', '한화투자증권'
+    HANA_DAETOO = '270', '하나대투증권'
+    SHINHAN_INV = '278', '신한금융투자'
+    DB_INV = '279', 'DB금융투자'
+    EUGENE_INV = '280', '유진투자증권'
+    MERITZ = '287', '메리츠종합금융증권'
+    NH_INV = '289', 'NH투자증권'
+    BOOKOOK = '290', '부국증권'
+    SHINYOUNG = '291', '신영증권'
+    LIG_INV = '292', '엘아이지투자증권'
+    KOSFI = '293', '한국증권금융'
+    FUNDONLINE = '294', '펀드온라인코리아'
+    WOORI_INV = '295', '우리종합금융'
+    SAMSUNG_FUT = '296', '삼성선물'
+    KEB_FUT = '297', '외환선물'
+    HYUNDAI_FUT = '298', '현대선물'

@@ -50,20 +50,7 @@ THIRD_PARTY_APPS = [
     'rest_framework_simplejwt'
 ]
 
-INSTALLED_APPS = [
-		'django.contrib.admin',
-		'django.contrib.auth',
-		'django.contrib.contenttypes',
-		'django.contrib.sessions',
-		'django.contrib.messages',
-		'django.contrib.staticfiles',
-
-		'rest_framework',
-		'drf_spectacular',
-
-		'apps.accounts',
-		'apps.notifications',
-]
+INSTALLED_APPS = DJANGO_APPS + own_apps + THIRD_PARTY_APPS
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
@@ -116,11 +103,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),
+        'NAME': os.getenv('DB_NAME', 'postgres'),
+        'USER': os.getenv('DB_USER', 'postgres'),
+        'PASSWORD': os.getenv('DB_PASSWORD', '1234'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
 
