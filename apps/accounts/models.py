@@ -11,7 +11,7 @@ class Users(models.Model):
 
   user_id = models.AutoField(primary_key=True)
   name = models.CharField(max_length=20)
-  password = models.CharField(max_length=255)
+  password = models.CharField(max_length=50)
   nickname = models.CharField(max_length=50, blank=True, null=True)
   role = EnumField(Role, default=Role.USER)
   last_login = models.DateTimeField()
