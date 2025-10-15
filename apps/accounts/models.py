@@ -1,7 +1,16 @@
+from django.conf import settings
 from django.db import models
 from .bank_code_choices import BankCode
 
 class Accounts(models.Model):
+    account_id = models.AutoField(primary_key=True)
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='accounts_info',
+    )
+
     #계좌의 유형을 분리합니다
     class AccountTypes(models.TextChoices):
         CHECKING = "CHECKING", "입출금",
@@ -22,7 +31,6 @@ class Accounts(models.Model):
         max_length=10,
         choices=BankCode.choices,
         default=BankCode.UNKNOWN,
-        unique=True,
     )
     account_number = models.CharField(max_length=30, unique=True)
     balance = models.DecimalField(decimal_places=2, max_digits=15)
