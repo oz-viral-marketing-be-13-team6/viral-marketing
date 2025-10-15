@@ -4,13 +4,11 @@ from .bank_code_choices import BankCode
 
 class Accounts(models.Model):
     account_id = models.AutoField(primary_key=True)
-
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name='accounts_info',
     )
-
     #계좌의 유형을 분리합니다
     class AccountTypes(models.TextChoices):
         CHECKING = "CHECKING", "입출금",
