@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # 환경 변수 로드
 load_dotenv(os.path.join(BASE_DIR, "envs", ".env"))
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "temporary-secret-key-for-dev")
 
 DEBUG = True
 ALLOWED_HOSTS = []
@@ -36,7 +36,7 @@ THIRD_PARTY_APPS = [
 
 OWN_APPS = [
     'apps.accounts',
-    'apps.history',  # ✅ 여기에 history 추가
+    'apps.history',  # ✅ history 추가
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + OWN_APPS  # ✅ 깔끔하게 합치기
@@ -96,11 +96,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),
+        'NAME': os.getenv('DB_NAME', 'postgres'),
+        'USER': os.getenv('DB_USER', 'postgres'),
+        'PASSWORD': os.getenv('DB_PASSWORD', '1234'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
 
@@ -135,5 +135,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-    "TOKEN_OBTAIN_SERIALIZER": "utils.jwt_serializers.MyTokenObtainPairSerializer",
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
+    "AUTH_HEADER_TYPES": ("Bearer",),
 }
