@@ -83,7 +83,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],  # ✅ 우리가 만든 templates 폴더 연결
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
