@@ -42,6 +42,8 @@ DJANGO_APPS = [
 ]
 own_apps = [
   'apps.accounts',
+  'apps.notifications',
+  'apps.users'
 ]
 
 THIRD_PARTY_APPS = [
