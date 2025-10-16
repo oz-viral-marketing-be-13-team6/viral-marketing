@@ -28,6 +28,13 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
+own_apps = [
+  'apps.accounts',
+  'apps.notifications',
+  'apps.users'
+]
+
+
 THIRD_PARTY_APPS = [
     'rest_framework',
     'drf_spectacular',
