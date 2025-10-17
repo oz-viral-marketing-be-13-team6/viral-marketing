@@ -12,8 +12,8 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # ✅ accounts 앱 연결 (로그인, 회원가입 등)
-    path('api/accounts/', include('apps.accounts.urls')),
+    # ✅ users 앱으로 변경 (accounts → users)
+    path('api/users/', include('apps.users.urls')),
 
     # ✅ API Schema 파일 다운로드 경로
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
@@ -27,7 +27,7 @@ urlpatterns = [
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
 ]
 
-# ✅ 여기를 새로 추가 (static 파일 인식)
+# ✅ static 파일 설정
 from django.conf import settings
 from django.conf.urls.static import static
 

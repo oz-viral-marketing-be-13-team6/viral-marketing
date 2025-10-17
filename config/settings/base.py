@@ -28,13 +28,6 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-own_apps = [
-  'apps.accounts',
-  'apps.notifications',
-  'apps.users'
-]
-
-
 THIRD_PARTY_APPS = [
     'rest_framework',
     'drf_spectacular',
@@ -42,11 +35,12 @@ THIRD_PARTY_APPS = [
 ]
 
 OWN_APPS = [
-    'apps.accounts',
-    'apps.history',  # ✅ history 추가
+    'apps.users',      # ✅ 기존 accounts → users로 변경
+    'apps.notifications',  # ✅ 추가하려는 경우 여기에 포함
+    'apps.history',    # ✅ history 유지
 ]
 
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + OWN_APPS  # ✅ 깔끔하게 합치기
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + OWN_APPS
 
 # ------------------------------
 # REST Framework & JWT
