@@ -1,0 +1,16 @@
+# 정적 파일 (CSS, JS, 이미지 등) 설정
+STATIC_URL = '/static/'
+
+# 개발 환경에서 static 파일을 찾을 위치
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # 예: ~/Desktop/viral-marketing/static/
+]
+
+# 배포 시 (지금은 개발 단계라 무시해도 됨)
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
