@@ -29,12 +29,12 @@ urlpatterns = [
 		path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
         path('api/accounts/', include('apps.accounts.urls')),
 
+        # 회원가입 URL 연결
+        path("register/", RegisterView.as_view(), name="register"),
+        path("activate/<uidb64>/<token>/", ActivateView.as_view(), name="activate"),
+
         #jwt
         path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
         path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
         path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
-
-        # 회원가입 URL 연결
-        path("register/", RegisterView.as_view(), name="register"),
-        path("activate/<uidb64>/<token>/", ActivateView.as_view(), name="activate"),
 ]
