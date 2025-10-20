@@ -4,10 +4,11 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.db import transaction
 
-from .models import Users
+from django.contrib.auth import get_user_model
+from .models import Accounts
 from .serializers import UserMeSerializer, UserPasswordChangeSerializer
 
-
+user = get_user_model()
 # Create your views here.
 # 게스트
 DELETED_USERS_ID = 999999
@@ -18,8 +19,8 @@ class UserMeAPIView(APIView):
 
 		def get(self, request):
 				""" 로그인한 사용자 정보 조회 """
-				ser = UserMeSerializer(request.user)
-				return Response(ser.data)
+				user = UserMeSerializer(request.user)
+				return Response(user.data)
 
 		def put(self, request):
 				"""" 수정 """
@@ -37,7 +38,7 @@ class UserMeAPIView(APIView):
 
 		@transaction.atomic
 		def delete(self, request):
-				uesr: Users = request.user
+				Users = request.user
 				"""탈퇴하면 999999번 유저 활성화"""
 				try:
 						deleted_user = Users.objects.get(pk=DELETED_USERS_ID)
@@ -46,12 +47,6 @@ class UserMeAPIView(APIView):
 
 				from apps.accounts.models import Accounts
 				Accounts.objects.filter(user=user).update(user=deleted_user)
-
-				try:
-						from apps.analysis.models import Analysis
-						Analysis.objects.filter(user=user).update(user=deleted_user)
-				except Exception:
-						pass
 
 				try:
 						from apps.notifications.models import Notifications

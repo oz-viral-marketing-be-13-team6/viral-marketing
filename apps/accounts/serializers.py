@@ -1,10 +1,12 @@
 from rest_framework import serializers
 from django.contrib.auth.hashers import check_password, make_password
-from .models import Users
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 class UserMeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Users
+        model = User
         fields = [
             'user_id',
             'name',
@@ -28,7 +30,7 @@ class UserPasswordChangeSerializer(serializers.Serializer):
         return attrs
 
     def save(self, **kwargs):
-        user: Users = self.context['request'].user
+        user: User = self.context['request'].user
         if not check_password(self.validated_data['old_password'], user.password):
             raise serializers.ValidationError({'old_password': '비밀번호가 올바르지 않습니다.'})
         user.password = make_password(self.validated_data['new_password1'])
