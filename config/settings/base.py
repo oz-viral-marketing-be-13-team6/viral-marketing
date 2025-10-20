@@ -163,6 +163,7 @@ SIMPLE_JWT = {
 }
 
 # 이메일 인증 관련 기능 ( USER, PASSWORD 는 .env 에 직접 추가 )
+# -> 비밀번호는 구글 앱 비빌번호 생성 기능으로 입력
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
@@ -170,3 +171,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# 유저 모델 변수 초기화
+AUTH_USER_MODEL = "users.Users"

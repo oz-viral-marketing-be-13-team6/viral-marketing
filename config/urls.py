@@ -34,5 +34,5 @@ urlpatterns = [
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
     # 회원가입 URL 연결
     path("register/", RegisterView.as_view(), name="register"),
-    path("activate/<uidb64>/<token>/", ActivateView.as_view(), name="activate"),
+    path("accounts/activate/<uidb64>/<token>/", ActivateView.as_view(), name="activate"),
 ]
