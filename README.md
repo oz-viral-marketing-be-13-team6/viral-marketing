@@ -26,6 +26,14 @@
 
 ---
 
+## 👓 ERD 🕶️
+
+<img width="1195" height="636" alt="Image" src="https://github.com/user-attachments/assets/893bb1a4-3ecd-48e9-87a6-17d0fd4c17c0" />
+
+> 유저, 계좌, 내역, 알람 기능으로 크게 4가지로 분류하였다.
+
+---
+
 ## 📊 플로우차트 📈
 
 <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/18b33ff0-e6d0-426a-97fe-4d529d90e077" />
