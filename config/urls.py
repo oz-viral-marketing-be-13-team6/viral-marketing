@@ -15,24 +15,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 # 회원가입 정보 import
 from apps.users.views import RegisterView, ActivateView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-# API Schema 파일 다운로드 경로
-    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
-    # Swagger UI (문서 보기) 경로
-    path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+		path('admin/', admin.site.urls),
+		# API Schema 파일 다운로드 경로
+		path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+		# Swagger UI (문서 보기) 경로
+		path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+        path('api/accounts/', include('apps.accounts.urls')),
 
-    #jwt
-    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
-    # 회원가입 URL 연결
-    path("register/", RegisterView.as_view(), name="register"),
-    path("activate/<uidb64>/<token>/", ActivateView.as_view(), name="activate"),
+        # 회원가입 URL 연결
+        path("register/", RegisterView.as_view(), name="register"),
+        path("activate/<uidb64>/<token>/", ActivateView.as_view(), name="activate"),
+
+        #jwt
+        path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+        path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+        path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
 ]
